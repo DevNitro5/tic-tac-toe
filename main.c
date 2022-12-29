@@ -10,33 +10,31 @@ int main()
     char ticTac[3][3];
     setDefault(ticTac);
 
-    // display_board(ticTac);
-
     for (int i = 1; i < 10;)
     {
         display_board(ticTac);
+
         char position;
-        enum boolean isEven = i % 2 == 0;
+
+        const enum boolean isEven = i % 2 == 0;
         const char currentPlayer = players[isEven];
 
         printf("Player %c turns: ", currentPlayer);
         scanf(" %c[^\n]", &position);
 
-        const enum boolean isPositionNotAvailable = set_postion_value(ticTac, position, currentPlayer);
-
-        if (isPositionNotAvailable)
-            printf("Entered position %c is not available.\n", position);
-        else
+        const enum boolean isPositionAvailable = set_postion_value(ticTac, position, currentPlayer);
+        if (isPositionAvailable)
             i++;
+        else
+            printf("Entered position %c is not available.\n", position);
 
-        char winner = check_for_winner(ticTac);
-
+        const char winner = check_for_winner(ticTac);
         if (winner)
         {
             printf("%c is winner\n", winner);
             display_board(ticTac);
 
-            enum boolean wantToPlay = ask_for_another_round();
+            const enum boolean wantToPlay = ask_for_another_round();
             if (wantToPlay)
             {
                 setDefault(ticTac);
@@ -55,7 +53,6 @@ int main()
             display_board(ticTac);
 
             enum boolean wantToPlay = ask_for_another_round();
-
             if (wantToPlay)
             {
                 setDefault(ticTac);
@@ -66,7 +63,5 @@ int main()
                 return 0;
             }
         }
-
-        // printf("Position %c\n", position);
     }
 }

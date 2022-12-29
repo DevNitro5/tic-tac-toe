@@ -36,10 +36,10 @@ void get_players(char players[2])
         printf("Player %d: ", i + 1);
         scanf(" %c[^\n]", &players[i]);
 
-        enum boolean isBothPlayerSame = players[0] == players[1];
+        const enum boolean isBothPlayerSame = players[0] == players[1];
 
         if (isBothPlayerSame)
-            printf("Player 1 and Player 2 must be different.\nPlayer 1 is %c and Player 2 %c.\n", players[0], players[1]);
+            printf("Player 1 and Player 2 must be different.\nPlayer 1 is %c and Player 2 is %c.\n", players[0], players[1]);
         else if (isValidPlayer(players[i]))
             i++;
         else
@@ -59,12 +59,12 @@ enum boolean set_postion_value(char arr[3][3], char position, char value)
             if (currentVal == position)
             {
                 arr[i][j] = value;
-                return false;
+                return true;
             }
         }
     }
 
-    return true;
+    return false;
 }
 
 // char check_for_winner(char ticTac[3][3])
@@ -150,7 +150,6 @@ char check_for_winner(char ticTac[3][3])
 
     return '\0';
 }
-
 
 enum boolean ask_for_another_round()
 {
