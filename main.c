@@ -26,7 +26,10 @@ int main()
         if (isPositionAvailable)
             i++;
         else
+        {
             printf("Entered position %c is not available.\n", position);
+            continue;
+        }
 
         const char winner = check_for_winner(ticTac);
         if (winner)

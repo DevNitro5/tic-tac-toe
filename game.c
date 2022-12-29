@@ -50,6 +50,10 @@ void get_players(char players[2])
 enum boolean set_postion_value(char arr[3][3], char position, char value)
 {
 
+    // if position value is not between char 1-9 
+    if (!(position > 48 && position < 58))
+        return false;
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
