@@ -159,11 +159,8 @@ enum boolean ask_for_another_round()
 {
     char response;
 
-    printf("Want to play another round? y/n :");
+    printf("Want to play another round? y/n: ");
     scanf(" %c[^\n]", &response);
 
-    if (response == 'y' || response == 'Y')
-        return true;
-
-    return false;
+    return (response == 'y' || response == 'Y');
 }
