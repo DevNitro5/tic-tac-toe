@@ -105,7 +105,7 @@ enum boolean set_postion_value(char arr[3][3], char position, char value)
 //     // 20 21 22
 // }
 
-char check_for_winner(char ticTac[3][3])
+char get_winner(char ticTac[3][3])
 {
 
     int count;

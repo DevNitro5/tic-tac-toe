@@ -31,7 +31,7 @@ int main()
             continue;
         }
 
-        const char winner = check_for_winner(ticTac);
+        const char winner = get_winner(ticTac);
         if (winner)
         {
             printf("%c is winner\n", winner);
