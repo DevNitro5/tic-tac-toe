@@ -16,8 +16,8 @@ int main()
 
         char position;
 
-        const enum boolean isEven = i % 2 == 0;
-        const char currentPlayer = players[isEven];
+        const int index = i % 2 == 0;
+        const char currentPlayer = players[index];
 
         printf("Player %c turns: ", currentPlayer);
         scanf(" %c[^\n]", &position);
