@@ -71,77 +71,37 @@ enum boolean set_postion_value(char arr[3][3], char position, char value)
     return false;
 }
 
-// char check_for_winner(char ticTac[3][3])
-// {
-
-//     if (ticTac[0][0] == ticTac[0][1] && ticTac[0][1] == ticTac[0][2])
-//         return ticTac[0][1];
-
-//     if (ticTac[1][0] == ticTac[1][1] && ticTac[1][1] == ticTac[1][2])
-//         return ticTac[1][0];
-
-//     if (ticTac[2][0] == ticTac[2][1] && ticTac[2][1] == ticTac[2][2])
-//         return ticTac[1][0];
-
-//     if (ticTac[0][0] == ticTac[1][0] && ticTac[1][0] == ticTac[2][0])
-//         return ticTac[1][0];
-
-//     if (ticTac[0][1] == ticTac[1][1] && ticTac[1][1] == ticTac[2][1])
-//         return ticTac[1][1];
-
-//     if (ticTac[0][2] == ticTac[1][2] && ticTac[1][2] == ticTac[2][2])
-//         return ticTac[1][2];
-
-//     if (ticTac[0][0] == ticTac[1][1] && ticTac[1][1] == ticTac[2][2])
-//         return ticTac[1][1];
-
-//     if (ticTac[0][2] == ticTac[1][1] && ticTac[1][1] == ticTac[2][0])
-//         return ticTac[1][1];
-
-//     return '\0';
-
-//     // 00 01 02
-//     // 10 11 12
-//     // 20 21 22
-// }
-
+    // 00 01 02
+    // 10 11 12
+    // 20 21 22
 char get_winner(char ticTac[3][3])
 {
-
-    int count;
-
-    // row checking
+    int  rowCount,columnCount;
+    
     for (int i = 0; i < 3; i++)
     {
-        count = 0;
+       rowCount = 0;
+       columnCount = 0;
         for (int j = 0; j < 2; j++)
         {
-            const char nextVal = ticTac[i][j + 1];
-            const char currentVal = ticTac[i][j];
+            const char nextRowVal = ticTac[i][j + 1];
+            const char currentRowVal = ticTac[i][j];
 
-            if (currentVal == nextVal)
-                count++;
-        }
+            if (currentRowVal == nextRowVal)
+                rowCount++;
 
-        if (count == 2)
-            return ticTac[i][0];
-    }
-
-    // column checking
-    for (int i = 0; i < 3; i++)
-    {
-        count = 0;
-        for (int j = 0; j < 2; j++)
-        {
-            const char nextVal = ticTac[j + 1][i];
-            const char currentVal = ticTac[j][i];
+            const char nextColumnVal = ticTac[j + 1][i];
+            const char currentColumnVal = ticTac[j][i];
             // printf("next[%d][%d]: %c and curr[%d][%d]: %c\n", j + 1, i, nextVal, j, i, currentVal);
 
-            if (currentVal == nextVal)
-                count++;
+            if (currentColumnVal == nextColumnVal)
+                columnCount++;
         }
 
-        if (count == 2)
+        if (rowCount == 2)
+            return ticTac[i][0];
+
+        if (columnCount == 2)
             return ticTac[0][i];
     }
 
