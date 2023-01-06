@@ -32,9 +32,10 @@ int main()
         }
 
         const char winner = get_winner(ticTac);
-        if (winner)
+        const enum boolean isGameOver = i == 10;
+        if (winner || isGameOver)
         {
-            printf("%c is winner\n", winner);
+            winner ? printf("%c is winner\n", winner) : printf("Draw\n");
             display_board(ticTac);
 
             const enum boolean wantToPlay = ask_for_another_round();
@@ -49,22 +50,5 @@ int main()
             }
         }
 
-        // game over
-        if (i == 10)
-        {
-            printf("Draw\n");
-            display_board(ticTac);
-
-            enum boolean wantToPlay = ask_for_another_round();
-            if (wantToPlay)
-            {
-                setDefault(ticTac);
-                i = 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
     }
 }
