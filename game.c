@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 enum boolean
 {
@@ -36,7 +37,7 @@ void get_players(char players[2])
         printf("Player %d: ", i + 1);
         scanf(" %c[^\n]", &players[i]);
 
-        const enum boolean isBothPlayerSame = players[0] == players[1];
+        const enum boolean isBothPlayerSame = tolower(players[0]) == tolower(players[1]);
 
         if (isBothPlayerSame)
             printf("Player 1 and Player 2 must be different.\nPlayer 1 is %c and Player 2 is %c.\n", players[0], players[1]);
