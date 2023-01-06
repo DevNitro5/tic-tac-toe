@@ -76,32 +76,32 @@ enum boolean set_postion_value(char arr[3][3], char position, char value)
     // 20 21 22
 char get_winner(char ticTac[3][3])
 {
-    int  rowCount,columnCount;
+    int  rowMatchCount,columnMatchCount;
     
     for (int i = 0; i < 3; i++)
     {
-       rowCount = 0;
-       columnCount = 0;
+       rowMatchCount = 0;
+       columnMatchCount = 0;
         for (int j = 0; j < 2; j++)
         {
             const char nextRowVal = ticTac[i][j + 1];
             const char currentRowVal = ticTac[i][j];
 
             if (currentRowVal == nextRowVal)
-                rowCount++;
+                rowMatchCount++;
 
             const char nextColumnVal = ticTac[j + 1][i];
             const char currentColumnVal = ticTac[j][i];
             // printf("next[%d][%d]: %c and curr[%d][%d]: %c\n", j + 1, i, nextVal, j, i, currentVal);
 
             if (currentColumnVal == nextColumnVal)
-                columnCount++;
+                columnMatchCount++;
         }
 
-        if (rowCount == 2)
+        if (rowMatchCount == 2)
             return ticTac[i][0];
 
-        if (columnCount == 2)
+        if (columnMatchCount == 2)
             return ticTac[0][i];
     }
 
