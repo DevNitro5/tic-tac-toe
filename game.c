@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <ctype.h>
 
-enum boolean
+enum Boolean
 {
     false,
     true
 };
+typedef enum Boolean boolean;
 
-enum boolean isValidPlayer(char player)
+boolean isValidPlayer(char player)
 {
     switch (player)
     {
@@ -37,7 +38,7 @@ void get_players(char players[2])
         printf("Player %d: ", i + 1);
         scanf(" %c[^\n]", &players[i]);
 
-        const enum boolean isBothPlayerSame = tolower(players[0]) == tolower(players[1]);
+        const boolean isBothPlayerSame = tolower(players[0]) == tolower(players[1]);
 
         if (isBothPlayerSame)
             printf("Player 1 and Player 2 must be different.\nPlayer 1 is %c and Player 2 is %c.\n", players[0], players[1]);
@@ -48,7 +49,7 @@ void get_players(char players[2])
     }
 }
 
-enum boolean set_postion_value(char arr[3][3], char position, char value)
+boolean set_postion_value(char arr[3][3], char position, char value)
 {
 
     // if position value is not between char 1-9
@@ -116,7 +117,7 @@ char get_winner(char ticTac[3][3])
     return '\0';
 }
 
-enum boolean ask_for_another_round()
+boolean ask_for_another_round()
 {
     char response;
 

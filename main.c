@@ -22,7 +22,7 @@ int main()
         printf("Player %c turns: ", currentPlayer);
         scanf(" %c[^\n]", &position);
 
-        const enum boolean isPositionAvailable = set_postion_value(ticTac, position, currentPlayer);
+        const boolean isPositionAvailable = set_postion_value(ticTac, position, currentPlayer);
         if (isPositionAvailable)
             i++;
         else
@@ -32,13 +32,13 @@ int main()
         }
 
         const char winner = get_winner(ticTac);
-        const enum boolean isGameOver = i == 10;
+        const boolean isGameOver = i == 10;
         if (winner || isGameOver)
         {
             winner ? printf("%c is winner\n", winner) : printf("Draw\n");
             display_board(ticTac);
 
-            const enum boolean wantToPlay = ask_for_another_round();
+            const boolean wantToPlay = ask_for_another_round();
             if (wantToPlay)
             {
                 setDefault(ticTac);
